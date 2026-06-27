@@ -378,5 +378,19 @@ describe("Testes de API - Calculadora", () => {
             expect(response.statusCode).toBe(200);
             expect(response.body.resultado).toBe("Informar apenas numeros");
         });
+        it("CT61 - tentar calcular potência com body vazio (parâmetros undefined)", async () => {
+            const response = await request(app).post("/api/potencia").send({});
+            
+            expect(response.statusCode).toBe(400);
+            
+            expect(response.body.erro).toBe("Os parâmetros 'num1' e 'num2' são obrigatórios.");
+        });
+
+        it("CT62 - tentar calcular potência mandando apenas o num1", async () => {
+            const response = await request(app).post("/api/potencia").send({ num1: 5 });
+            
+            expect(response.statusCode).toBe(400);
+            expect(response.body.erro).toBe("Os parâmetros 'num1' e 'num2' são obrigatórios.");
+        });
     });
 });

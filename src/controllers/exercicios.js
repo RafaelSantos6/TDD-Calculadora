@@ -48,7 +48,7 @@ class Controller {
         const { num1, num2 } = req.body
         
         if (num1 === undefined || num2 === undefined) {
-            return res.status(400).send({ erro: "Os parâmetros 'num1' (base) e 'num2' (expoente) são obrigatórios." })
+            return res.status(400).send({ erro: "Os parâmetros 'num1' e 'num2' são obrigatórios." })
         }
 
         const resultado = Service.Potencia(num1, num2)
