@@ -1,10 +1,10 @@
 class Service {
-    Somar(num1, num2) {
-        if (isNaN(num1) || isNaN(num2)) {
-            return "Informar apenas numeros"
-        }
-        return num1 + num2;
+Somar(num1, num2) {
+    if (typeof num1 !== 'number' || typeof num2 !== 'number' || isNaN(num1) || isNaN(num2)) {
+        return "Informar apenas numeros";
     }
+    return num1 + num2;
+}
 
     Subtrair(num1, num2) {
         if (isNaN(num1) || isNaN(num2)) {
@@ -31,14 +31,14 @@ class Service {
     }
 
     Raiz(num1) {
-        if (isNaN(num1)) {
-            return "Informar apenas numeros"
-        }
-        if (num1 < 0) {
-            throw new Error("Não é possível calcular a raiz quadrada de um número negativo.");
-        }
-        return Math.sqrt(num1);
+    if (typeof num1 !== 'number' || isNaN(num1)) {
+        return "Informar apenas numeros";
     }
+    if (num1 < 0) {
+        throw new Error("Não é possível calcular a raiz quadrada de um número negativo.");
+    }
+    return Math.sqrt(num1);
+}
 
     Potencia(num1, num2) {
         if (isNaN(num1) || isNaN(num2)) {
